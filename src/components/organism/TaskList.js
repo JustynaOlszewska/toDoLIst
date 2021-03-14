@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyledUl } from '../../styles/stylesComponents/StyledTaskList';
 import { getTasks } from '../../actions/fetchActions';
+import Spinner from '../molecules/spinner/Spinner';
 const Task = lazy(() => import('../molecules/Task'));
 
 const TaskList = ({ tasks, loading, getTasks }) => {
@@ -13,9 +14,11 @@ const TaskList = ({ tasks, loading, getTasks }) => {
 
   return (
     <StyledUl>
-      {!loading &&
-        tasks !== null &&
-        tasks.map(task => <Task key={task.id} task={task} />)}
+      {!loading && tasks !== null ? (
+        tasks.map(task => <Task key={task.id} task={task} />)
+      ) : (
+        <Spinner />
+      )}
     </StyledUl>
   );
 };

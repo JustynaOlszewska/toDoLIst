@@ -8,7 +8,6 @@ import {
 const initialState = {
   type: 'button',
   dropDownForm: false,
-  dropDownList: [],
   value: {
     text: '',
     date: '',

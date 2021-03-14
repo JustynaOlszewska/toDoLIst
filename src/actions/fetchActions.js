@@ -6,63 +6,45 @@ import {
   ERROR_TASK
 } from '../actions/types';
 
-export const getTasks = () => async dispatch => {
+const api = (
+  url,
+  method = 'get',
+  type,
+  typeError,
+  body = null
+) => async dispatch => {
   try {
     setLoading();
-    const res = await fetch('./tasks');
-    const data = await res.json();
-    dispatch({
-      type: GET_TASKS,
-      payload: data
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_TASK,
-      payload: error
-    });
-  }
-};
-
-export const addTask = value => async dispatch => {
-  try {
-    setLoading();
-    const res = await fetch('/tasks', {
-      method: 'POST',
-      body: JSON.stringify(value),
+    const res = await fetch(url, {
+      method: method,
+      body: method === 'POST' ? JSON.stringify(body) : null,
       headers: {
         'Content-Type': 'application/json'
       }
     });
     const data = await res.json();
     dispatch({
-      type: ADD_TASK,
-      payload: data
+      type: type,
+      payload: method === 'DELETE' ? body.id : data
     });
   } catch (error) {
     dispatch({
-      type: ERROR_TASK,
+      type: typeError,
       payload: error
     });
   }
 };
 
-export const deleteTask = id => async dispatch => {
-  try {
-    setLoading();
-    await fetch(`/tasks/${id}`, {
-      method: 'DELETE'
-    });
+export const getTasks = () => {
+  return api('./tasks', 'GET', GET_TASKS, ERROR_TASK);
+};
 
-    dispatch({
-      type: DELETE_TASK,
-      payload: id
-    });
-  } catch (err) {
-    dispatch({
-      type: ERROR_TASK,
-      payload: err.response.statusText
-    });
-  }
+export const addTask = value => {
+  return api('./tasks', 'POST', ADD_TASK, ERROR_TASK, value);
+};
+
+export const deleteTask = id => {
+  return api(`./tasks/${id}`, 'DELETE', DELETE_TASK, ERROR_TASK, { id });
 };
 
 export const setLoading = () => {

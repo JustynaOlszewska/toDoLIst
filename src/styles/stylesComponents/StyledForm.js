@@ -18,4 +18,5 @@ export const StyledForm = styled.form`
 `;
 export const StyledIcon = styled.i`
   ${Priority}
+  cursor: pointer;
 `;
