@@ -43,9 +43,16 @@ const Form = ({
     clearAll();
   };
 
+  const dropDown = () => {
+    if (type === 'submit' && Object.values(value).some(key => key === '')) {
+      return;
+    }
+    return setDropDown();
+  };
+
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <Button task="add" handleClick={setDropDown} type={type} />
+      <Button task="add" handleClick={dropDown} type={type} />
       <StyledInputs drop={dropDownForm}>
         <label htmlFor="text">
           Task name

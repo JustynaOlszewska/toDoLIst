@@ -19,12 +19,6 @@ const initialState = {
 const formReducer = (state = initialState, action) => {
   switch (action.type) {
     case DROPDOWN_FORM:
-      if (
-        state.type === 'submit' &&
-        Object.values(state.value).some(key => key === '')
-      ) {
-        return state;
-      }
       return {
         ...state,
         dropDownForm: !state.dropDownForm,
@@ -32,11 +26,12 @@ const formReducer = (state = initialState, action) => {
       };
 
     case SETCONTROL_FORM:
+      const { name, value } = action.payload.target;
       return {
         ...state,
         value: {
           ...state.value,
-          [action.payload.target.name]: action.payload.target.value
+          [name]: value
         }
       };
 
@@ -49,7 +44,7 @@ const formReducer = (state = initialState, action) => {
     case CLEAR_FORM:
       return {
         ...state,
-        value: { text: '', date: '', textArea: '' },
+        value: initialState.value,
         priority: false,
         type: 'button'
       };
