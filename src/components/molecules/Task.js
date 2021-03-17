@@ -8,7 +8,7 @@ import {
   StyledLi,
   StyledSpan
 } from '../../styles/stylesComponents/StyledTask';
-import { deleteTask } from '../../actions/fetchActions';
+import { deleteTask } from '../../actions/taskActions';
 const Button = lazy(() => import('../atom/Button'));
 const DescriptionTask = lazy(() => import('../atom/DescriptionTask'));
 
@@ -26,10 +26,10 @@ const Task = ({ task, deleteTask }) => {
   return (
     <>
       <StyledLi>
-        <Button task='delete' handleClick={handleDelete} />
+        <Button task="delete" handleClick={handleDelete} />
         <StyledSpan onClick={dropDownDescription}>Task name: {text}</StyledSpan>
         <StyledSpan date>Added: {date}</StyledSpan>
-        <StyledIcon priority={priority} className='fas fa-eye'>
+        <StyledIcon priority={priority} className="fas fa-eye">
           Priority
         </StyledIcon>
         <DescriptionTask dropDownList={dropDownList} description={textArea} />

@@ -2,7 +2,7 @@ import React, { useEffect, lazy } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyledUl } from '../../styles/stylesComponents/StyledTaskList';
-import { getTasks } from '../../actions/fetchActions';
+import { getTasks } from '../../actions/taskActions';
 import Spinner from '../molecules/spinner/Spinner';
 const Task = lazy(() => import('../molecules/Task'));
 
@@ -29,9 +29,9 @@ TaskList.propTypes = {
   getTasks: PropTypes.func
 };
 
-const mapStateToProps = state => ({
-  tasks: state.fetchReducer.tasks,
-  loading: state.fetchReducer.loading
+const mapStateToProps = ({ taskReducer: { tasks, loading } }) => ({
+  tasks,
+  loading
 });
 
 export default connect(mapStateToProps, { getTasks })(TaskList);

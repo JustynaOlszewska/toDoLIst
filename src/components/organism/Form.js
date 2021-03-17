@@ -8,7 +8,7 @@ import {
   StyledIcon
 } from '../../styles/stylesComponents/StyledForm';
 import { setAlert } from '../../actions/alertAction';
-import { addTask, getTasks } from '../../actions/fetchActions';
+import { addTask, getTasks } from '../../actions/taskActions';
 import {
   setDropDown,
   handleChange,
@@ -45,43 +45,43 @@ const Form = ({
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <Button task='add' handleClick={setDropDown} type={type} />
+      <Button task="add" handleClick={setDropDown} type={type} />
       <StyledInputs drop={dropDownForm}>
-        <label htmlFor='text'>
+        <label htmlFor="text">
           Task name
           <input
-            type='text'
-            maxLength='30'
-            id='text'
+            type="text"
+            maxLength="30"
+            id="text"
             value={text}
-            name='text'
+            name="text"
             onChange={handleChange}
           />
         </label>
-        <label htmlFor='date'>
+        <label htmlFor="date">
           Date Added
           <input
-            type='date'
-            id='date'
+            type="date"
+            id="date"
             value={date}
-            name='date'
+            name="date"
             onChange={handleChange}
           />
         </label>
-        <label htmlFor='area'>
+        <label htmlFor="area">
           <StyledTextArea
-            id='area'
-            maxLength='50'
-            cols='30'
-            rows='10'
+            id="area"
+            maxLength="50"
+            cols="30"
+            rows="10"
             value={textArea}
-            name='textArea'
+            name="textArea"
             onChange={handleChange}
           />
         </label>
         <StyledIcon
           priority={priority}
-          className='fas fa-eye'
+          className="fas fa-eye"
           onClick={setPriorityTask}
         >
           Priority
@@ -105,11 +105,13 @@ Form.propTypes = {
   type: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  value: state.formReducer.value,
-  priority: state.formReducer.priority,
-  dropDownForm: state.formReducer.dropDownForm,
-  type: state.formReducer.type
+const mapStateToProps = ({
+  formReducer: { value, priority, dropDownForm, type }
+}) => ({
+  value,
+  priority,
+  dropDownForm,
+  type
 });
 
 export default connect(mapStateToProps, {

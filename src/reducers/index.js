@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import fetchReducer from './fetchReducer';
+import taskReducer from './taskReducer';
 import alertReducer from './alertReducer';
 import formReducer from './formReducer';
 
-export default combineReducers({ fetchReducer, alertReducer, formReducer });
+export default combineReducers({ taskReducer, alertReducer, formReducer });

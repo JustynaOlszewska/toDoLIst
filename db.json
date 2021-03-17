@@ -8,32 +8,25 @@
       "id": 5
     },
     {
-      "text": "sss",
-      "date": "2021-03-13",
-      "textArea": "n",
+      "text": "zatankuj auto",
+      "date": "2021-03-27",
+      "textArea": "nie ma na co czekać, bo auto brudne",
+      "priority": true,
+      "id": 6
+    },
+    {
+      "text": "mkk",
+      "date": "2021-03-20",
+      "textArea": "mmmmmmmmmmmmmmmmmmmm",
+      "priority": true,
+      "id": 7
+    },
+    {
+      "text": "nn",
+      "date": "2021-03-06",
+      "textArea": "k",
       "priority": true,
       "id": 8
-    },
-    {
-      "text": "sss",
-      "date": "2021-03-06",
-      "textArea": "mm",
-      "priority": true,
-      "id": 9
-    },
-    {
-      "text": "xzxzx",
-      "date": "2021-03-05",
-      "textArea": "kjkxjc",
-      "priority": true,
-      "id": 10
-    },
-    {
-      "text": "kmjkjk",
-      "date": "2021-03-20",
-      "textArea": ",mnknk",
-      "priority": false,
-      "id": 11
     }
   ]
 }

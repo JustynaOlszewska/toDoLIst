@@ -3,18 +3,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyledAlert } from '../../styles/stylesComponents/StyledAlert';
 
-const Alert = ({ alert }) => (
-  <StyledAlert>
-    {alert !== null && <i className='fas fa-info-circle'>{alert}</i>}
-  </StyledAlert>
-);
+const Alert = ({ alert }) =>
+  alert && (
+    <StyledAlert>
+      <i className="fas fa-info-circle">{alert}</i>
+    </StyledAlert>
+  );
 
 Alert.propTypes = {
   alert: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  alert: state.alertReducer.alert
+const mapStateToProps = ({ alertReducer: { alert } }) => ({
+  alert
 });
 
 export default connect(mapStateToProps)(Alert);

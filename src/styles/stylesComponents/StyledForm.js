@@ -9,6 +9,7 @@ export const StyledInputs = styled.div`
   ${Flex}
   height: ${({ drop }) => (!drop ? `0` : `200px`)};
 `;
+
 export const StyledForm = styled.form`
   ${Flex}
   width: 90%;

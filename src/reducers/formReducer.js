@@ -30,6 +30,7 @@ const formReducer = (state = initialState, action) => {
         dropDownForm: !state.dropDownForm,
         type: 'submit'
       };
+
     case SETCONTROL_FORM:
       return {
         ...state,
@@ -38,11 +39,13 @@ const formReducer = (state = initialState, action) => {
           [action.payload.target.name]: action.payload.target.value
         }
       };
+
     case SETPRIORITY_TASK:
       return {
         ...state,
         priority: !state.priority
       };
+
     case CLEAR_FORM:
       return {
         ...state,
@@ -50,6 +53,7 @@ const formReducer = (state = initialState, action) => {
         priority: false,
         type: 'button'
       };
+
     default:
       return state;
   }

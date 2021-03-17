@@ -5,11 +5,7 @@
       "plugin:prettier/recommended"
     ],
     "rules": {
-     "prefer-template": "error",
-      "semi": "error"
-      // "quotes": [
-      //   "error",
-      //   "single"
-      // ]
+     "prefer-template": "error"
+    
     }
   }
