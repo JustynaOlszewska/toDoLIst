@@ -15,6 +15,7 @@ const DescriptionTask = lazy(() => import('../atom/DescriptionTask'));
 const Task = ({ task, deleteTask }) => {
   const [dropDownList, setDropDownList] = useState(false);
   const { id, text, date, priority, textArea } = task;
+
   const handleDelete = () => {
     deleteTask(id);
     M.toast({ html: 'Task deleted' });
@@ -26,7 +27,7 @@ const Task = ({ task, deleteTask }) => {
   return (
     <>
       <StyledLi>
-        <Button task="delete" handleClick={handleDelete} />
+        <Button task="delete" handleClick={handleDelete} type="reset" />
         <StyledSpan onClick={dropDownDescription}>Task name: {text}</StyledSpan>
         <StyledSpan date>Added: {date}</StyledSpan>
         <StyledIcon priority={priority} className="fas fa-eye">
@@ -40,7 +41,12 @@ const Task = ({ task, deleteTask }) => {
 };
 
 Task.propTypes = {
-  task: PropTypes.object,
+  task: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    textArea: PropTypes.string.isRequired,
+    priority: PropTypes.bool.isRequired
+  }),
   deleteTask: PropTypes.func
 };
 

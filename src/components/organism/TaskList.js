@@ -14,10 +14,10 @@ const TaskList = ({ tasks, loading, getTasks }) => {
 
   return (
     <StyledUl>
-      {!loading && tasks !== null ? (
-        tasks.map(task => <Task key={task.id} task={task} />)
-      ) : (
+      {loading ? (
         <Spinner />
+      ) : (
+        tasks && tasks.map(task => <Task key={task.id} task={task} />)
       )}
     </StyledUl>
   );
