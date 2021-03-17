@@ -12,6 +12,7 @@ export const StyledInputs = styled.div`
 export const StyledForm = styled.form`
   ${Flex}
   width: 90%;
+
   @media (min-width: ${breakPoints.medium}) {
     width: 80%;
   }
@@ -25,6 +26,7 @@ export const StyledTextArea = styled.textarea`
 export const StyledIcon = styled.i`
   ${Priority}
   cursor: pointer;
+
   @media (min-width: 1024px) {
     margin-bottom: 10px;
   }

@@ -6,7 +6,7 @@ export const StyledIcon = styled.i`
 `;
 
 export const StyledLi = styled.li`
-  margin: 10px 10px;
+  margin: 10px;
 `;
 
 export const StyledSpan = styled.span`
