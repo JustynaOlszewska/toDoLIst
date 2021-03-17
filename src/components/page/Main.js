@@ -6,6 +6,7 @@ import {
   StyledSection,
   StyledH1
 } from '../../styles/stylesComponents/StyledMain';
+import ErrorBoundary from '../../../src/ErrorBoundary';
 const Form = lazy(() => import('../organism/Form'));
 const TaskList = lazy(() => import('../organism/TaskList'));
 const Alert = lazy(() => import('../molecules/Alert'));
@@ -17,14 +18,18 @@ const Main = () => {
 
   return (
     <StyledMain>
-      <StyledSection primary>
-        <Form />
-        <Alert />
-      </StyledSection>
-      <StyledSection>
-        <StyledH1>Organize your time</StyledH1>
-        <TaskList />
-      </StyledSection>
+      <ErrorBoundary>
+        <StyledSection primary>
+          <Form />
+          <Alert />
+        </StyledSection>
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <StyledSection>
+          <StyledH1>Organize your time</StyledH1>
+          <TaskList />
+        </StyledSection>
+      </ErrorBoundary>
     </StyledMain>
   );
 };

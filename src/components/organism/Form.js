@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   StyledInputs,
   StyledForm,
+  StyledTextArea,
   StyledIcon
 } from '../../styles/stylesComponents/StyledForm';
 import { setAlert } from '../../actions/alertAction';
@@ -68,7 +69,7 @@ const Form = ({
           />
         </label>
         <label htmlFor='area'>
-          <textarea
+          <StyledTextArea
             id='area'
             maxLength='50'
             cols='30'
