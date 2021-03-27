@@ -7,7 +7,7 @@ import { breakPoints } from '../../styles/breakPoints';
 export const StyledInputs = styled.div`
   ${Transform}
   ${Flex}
-  height: ${({ drop }) => (!drop ? `0` : `200px`)};
+  height: ${({ drop }) => (!drop ? '0' : '200px')};
 `;
 
 export const StyledForm = styled.form`

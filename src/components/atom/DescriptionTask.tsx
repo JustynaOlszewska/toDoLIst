@@ -1,14 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StyledDescription } from '../../styles/stylesComponents/StyledDescription';
 
-const DescriptionTask = ({ dropDownList, description }) => (
+type DescriptionTaskProps = {
+  dropDownList: boolean;
+  description: string;
+};
+
+const DescriptionTask = ({
+  dropDownList,
+  description
+}: DescriptionTaskProps) => (
   <StyledDescription drop={dropDownList}>{description}</StyledDescription>
 );
-
-DescriptionTask.propTypes = {
-  dropDownList: PropTypes.bool,
-  description: PropTypes.string.isRequired
-};
 
 export default DescriptionTask;

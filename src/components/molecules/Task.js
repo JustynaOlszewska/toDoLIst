@@ -9,8 +9,8 @@ import {
   StyledSpan
 } from '../../styles/stylesComponents/StyledTask';
 import { deleteTask } from '../../actions/taskActions';
-const Button = lazy(() => import('../atom/Button'));
-const DescriptionTask = lazy(() => import('../atom/DescriptionTask'));
+const Button = lazy(() => import('../atom/Button.tsx'));
+const DescriptionTask = lazy(() => import('../atom/DescriptionTask.tsx'));
 
 const Task = ({ task, deleteTask }) => {
   const [dropDownList, setDropDownList] = useState(false);
@@ -45,7 +45,8 @@ Task.propTypes = {
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     textArea: PropTypes.string.isRequired,
-    priority: PropTypes.bool.isRequired
+    priority: PropTypes.bool.isRequired,
+    date: PropTypes.string.isRequired
   }),
   deleteTask: PropTypes.func
 };

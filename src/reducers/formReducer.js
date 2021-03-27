@@ -25,7 +25,7 @@ const formReducer = (state = initialState, action) => {
         type: 'submit'
       };
 
-    case SETCONTROL_FORM:
+    case SETCONTROL_FORM: {
       const { name, value } = action.payload.target;
       return {
         ...state,
@@ -34,6 +34,7 @@ const formReducer = (state = initialState, action) => {
           [name]: value
         }
       };
+    }
 
     case SETPRIORITY_TASK:
       return {

@@ -11,9 +11,10 @@ export const StyledMain = styled.main`
   left: 50%;
   top: 3%;
   transform: translate(-50%);
+  border-radius: 1%;
   ${BoxShadow}
 
-  @media(min-width: ${breakPoints.medium}) {
+  @media (min-width: ${breakPoints.medium}) {
     flex-direction: row;
     align-items: flex-start;
   }

@@ -1,18 +1,18 @@
 {
   "tasks": [
     {
-      "text": "Kup książki",
-      "date": "2021-03-24",
-      "textArea": "Kup Małe wielkie odkrycia. Najważniejsze wynalazki, które odmieniły świat",
-      "priority": false,
-      "id": 5
+      "text": "mm",
+      "date": "2021-03-06",
+      "textArea": "mmm",
+      "priority": true,
+      "id": 1
     },
     {
-      "text": "zatankuj auto",
-      "date": "2021-03-27",
-      "textArea": "nie ma na co czekać, bo auto brudne",
-      "priority": true,
-      "id": 6
+      "text": "mn bnjbxjzcxzj",
+      "date": "2021-03-11",
+      "textArea": "jcjxcxb c jcbx j js ",
+      "priority": false,
+      "id": 2
     }
   ]
 }
