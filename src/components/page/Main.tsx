@@ -6,10 +6,10 @@ import {
   StyledSection,
   StyledH1
 } from '../../styles/stylesComponents/StyledMain';
-import ErrorBoundary from '../../../src/ErrorBoundary';
+import ErrorBoundary from '../../ErrorBoundary';
 const Form = lazy(() => import('../organism/Form'));
 const TaskList = lazy(() => import('../organism/TaskList'));
-// const Alert = lazy(() => import('../molecules/Alert'));
+const Alert = lazy(() => import('../molecules/Alert'));
 
 const Main = () => {
   useEffect(() => {
@@ -21,7 +21,7 @@ const Main = () => {
       <ErrorBoundary>
         <StyledSection primary>
           <Form />
-          {/* <Alert /> */}
+          <Alert />
         </StyledSection>
       </ErrorBoundary>
       <ErrorBoundary>

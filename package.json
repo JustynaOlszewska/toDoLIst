@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/materialize-css": "^1.0.8",
     "@types/react-redux": "^7.1.16",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",

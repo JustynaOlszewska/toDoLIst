@@ -6,7 +6,7 @@ type DescriptionTaskProps = {
   description: string;
 };
 
-const DescriptionTask = ({
+const DescriptionTask: React.FunctionComponent<DescriptionTaskProps> = ({
   dropDownList,
   description
 }: DescriptionTaskProps) => (

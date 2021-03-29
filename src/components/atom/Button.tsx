@@ -7,7 +7,11 @@ type ButtonProps = {
   type?: string;
 };
 
-const Button = ({ handleClick, type = 'button', task }: ButtonProps) => (
+const Button: React.FunctionComponent<ButtonProps> = ({
+  handleClick,
+  type = 'button',
+  task
+}: ButtonProps) => (
   <StyledButton task={task} type={type} onClick={handleClick}>
     {task}
   </StyledButton>
