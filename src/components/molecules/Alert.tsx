@@ -7,7 +7,7 @@ import { StyledAlert } from '../../styles/stylesComponents/StyledAlert';
 //   alert: string;
 // };
 
-// const Alert = ({ alert }: AlertProps) =>
+// const Alert: React.FC<AlertProps> = ({ alert }: AlertProps) =>
 const Alert = ({ alert }) =>
   alert && (
     <StyledAlert>
@@ -24,6 +24,9 @@ Alert.propTypes = {
 const mapStateToProps = ({ alertReducer: { alert } }) => ({
   alert
 });
+// const connector = connect(mapStateToProps);
+// type PropsFromRedux = ConnectedProps<typeof connector>;
 
-// export default connect<StateProps>mapStateToProps(Alert);
+// // export default connect<StateProps>mapStateToProps(Alert);
+// export default connector(Alert);
 export default connect(mapStateToProps)(Alert);

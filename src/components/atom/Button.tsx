@@ -7,7 +7,7 @@ type ButtonProps = {
   type?: string;
 };
 
-const Button: React.FunctionComponent<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   handleClick,
   type = 'button',
   task

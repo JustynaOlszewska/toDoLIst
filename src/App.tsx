@@ -4,7 +4,7 @@ import store from './store';
 import Spinner from './components/molecules/spinner/Spinner';
 const Main = lazy(() => import('./components/page/Main'));
 
-const App = () => (
+const App: React.FC = () => (
   <Suspense fallback={<Spinner />}>
     <Provider store={store}>
       <Main />
