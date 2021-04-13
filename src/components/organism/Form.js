@@ -16,7 +16,7 @@ import {
   setPriorityTask
 } from '../../actions/formActions';
 
-const Button = lazy(() => import('../atom/Button.tsx'));
+const Button = lazy(() => import('../atom/Button'));
 
 const Form = ({
   setAlert,
