@@ -16,7 +16,36 @@ const initialState = {
   priority: false
 };
 
-const formReducer = (state = initialState, action) => {
+interface InitialState {
+  type: string;
+  dropDownForm: boolean;
+  value: {
+    text: string;
+    date: string;
+    textArea: string;
+  };
+  priority: boolean;
+}
+
+type Actions =
+  | { type: typeof DROPDOWN_FORM }
+  | {
+      type: typeof SETCONTROL_FORM;
+      payload: {
+        target: {
+          name: string;
+          value: {
+            text: string;
+            date: string;
+            textArea: string;
+          };
+        };
+      };
+    }
+  | { type: typeof SETPRIORITY_TASK }
+  | { type: typeof CLEAR_FORM };
+
+const formReducer = (state = initialState, action: Actions): InitialState => {
   switch (action.type) {
     case DROPDOWN_FORM:
       return {

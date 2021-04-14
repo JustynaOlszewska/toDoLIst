@@ -1,6 +1,5 @@
 import React, { lazy } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import {
   StyledInputs,
   StyledForm,
@@ -16,6 +15,25 @@ import {
   setPriorityTask
 } from '../../actions/formActions';
 
+interface FormProps extends StateProps {
+  setAlert: (m: string) => void;
+  addTask: (value: {
+    text: string;
+    date: string;
+    textArea: string;
+    priority: boolean;
+  }) => void;
+  getTasks: () => void;
+  setDropDown: () => void;
+  handleChange: () => void;
+  setPriorityTask: () => void;
+  clearAll: () => void;
+  value: { text: string; date: string; textArea: string };
+  priority: boolean;
+  dropDownForm: boolean;
+  type: string;
+}
+
 const Button = lazy(() => import('../atom/Button'));
 
 const Form = ({
@@ -30,10 +48,10 @@ const Form = ({
   priority,
   dropDownForm,
   type
-}) => {
+}: FormProps) => {
   const { text, date, textArea } = value;
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: React.SyntheticEvent): void => {
     event.preventDefault();
     if (text === '' || date === '' || textArea === '') {
       setAlert('fill all fields, please');
@@ -44,7 +62,7 @@ const Form = ({
     clearAll();
   };
 
-  const dropDown = () => {
+  const dropDown = (): void => {
     if (type === 'submit' && Object.values(value).some(key => key === '')) {
       return;
     }
@@ -59,7 +77,7 @@ const Form = ({
           Task name
           <input
             type="text"
-            maxLength="30"
+            maxLength={30}
             id="text"
             value={text}
             name="text"
@@ -99,27 +117,18 @@ const Form = ({
   );
 };
 
-Form.propTypes = {
-  setAlert: PropTypes.func,
-  addTask: PropTypes.func,
-  getTasks: PropTypes.func,
-  setDropDown: PropTypes.func,
-  handleChange: PropTypes.func,
-  setPriorityTask: PropTypes.func,
-  clearAll: PropTypes.func,
-  value: PropTypes.object,
-  priority: PropTypes.bool,
-  dropDownForm: PropTypes.bool,
-  type: PropTypes.string
-};
+interface StateProps {
+  value: { text: string; date: string; textArea: string };
+  priority: boolean;
+  dropDownForm: boolean;
+  type: string;
+}
 
-const mapStateToProps = ({
-  formReducer: { value, priority, dropDownForm, type }
-}) => ({
-  value,
-  priority,
-  dropDownForm,
-  type
+const mapStateToProps = (state: any): StateProps => ({
+  value: state.formReducer.value,
+  priority: state.formReducer.priority,
+  dropDownForm: state.formReducer.dropDownForm,
+  type: state.formReducer.type
 });
 
 export default connect(mapStateToProps, {
