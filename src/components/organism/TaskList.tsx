@@ -11,10 +11,6 @@ interface TaskListProps extends StateProps {
   getTasks: () => any;
 }
 
-interface Task {
-  id: number;
-}
-
 const TaskList = ({ tasks, loading, getTasks }: TaskListProps) => {
   useEffect((): void => {
     getTasks();

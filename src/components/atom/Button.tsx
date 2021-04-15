@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StyledButton } from '../../styles/stylesComponents/StyledButton';
 
-type ButtonProps = {
+interface ButtonProps {
   handleClick: () => void;
-  task: string;
-  type?: string;
-};
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  task: 'add' | 'delete' | undefined;
+}
 
 const Button: React.FC<ButtonProps> = ({
   handleClick,
   type = 'button',
   task
-}: ButtonProps) => (
-  <StyledButton task={task} type={type} onClick={handleClick}>
-    {task}
-  </StyledButton>
-);
+}: ButtonProps) => {
+  console.log('d', task);
+  return (
+    <StyledButton type={type} task={task} onClick={handleClick}>
+      {task}
+    </StyledButton>
+  );
+};
 
 export default Button;

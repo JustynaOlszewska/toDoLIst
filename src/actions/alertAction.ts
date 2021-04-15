@@ -1,6 +1,13 @@
 import { SET_ALERT, REMOVE_ALERT } from './types';
 
-export const setAlert = (msg, timeout = 5000) => dispatch => {
+type AlertProps = {
+  msg?: string;
+  timeout?: number;
+};
+
+export const setAlert = (msg, timeout = 5000): AlertProps => (
+  dispatch: any
+) => {
   dispatch({
     type: SET_ALERT,
     payload: msg

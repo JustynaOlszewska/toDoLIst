@@ -10,7 +10,7 @@ export const StyledLi = styled.li`
 `;
 
 export const StyledSpan = styled.span`
-  cursor: ${props => !props.date && 'pointer'};
+  cursor: ${({ date }: string) => !date && 'pointer'};
   word-wrap: break-word;
   display: inline-block;
   width: 60%;

@@ -12,7 +12,7 @@ const initialState: Alert = {
   alert: null
 };
 
-const alertReducer = (state = initialState, action: Actions) => {
+const alertReducer = (state = initialState, action: Actions): Alert => {
   switch (action.type) {
     case SET_ALERT:
       return {
