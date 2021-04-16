@@ -12,7 +12,7 @@ const TaskList = lazy(() => import('../organism/TaskList'));
 const Alert = lazy(() => import('../molecules/Alert'));
 
 const Main: React.FC = () => {
-  useEffect(() => {
+  useEffect((): void => {
     M.AutoInit();
   }, []);
 

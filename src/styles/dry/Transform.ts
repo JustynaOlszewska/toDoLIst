@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 interface DropProps {
-  drop: any;
+  drop?: boolean;
 }
 
 export const Transform = css<DropProps>`

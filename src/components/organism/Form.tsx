@@ -25,7 +25,7 @@ interface FormProps extends StateProps {
   }) => void;
   getTasks: () => void;
   setDropDown: () => void;
-  handleChange: () => void;
+  handleChange: (event: React.SyntheticEvent) => void;
   setPriorityTask: () => void;
   clearAll: () => void;
   value: { text: string; date: string; textArea: string };
