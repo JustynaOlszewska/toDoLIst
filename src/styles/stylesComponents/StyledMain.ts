@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
-import { BoxShadow } from '../../styles/dry/BoxShadow';
-import { breakPoints } from '../../styles/breakPoints';
+import { BoxShadow } from '../dry/BoxShadow';
+import { breakPoints } from '../breakPoints';
+
+interface PrimaryProps {
+  readonly primary?: boolean;
+}
 
 export const StyledMain = styled.main`
   display: flex;
@@ -20,14 +24,14 @@ export const StyledMain = styled.main`
   }
 `;
 
-export const StyledSection = styled.section`
+export const StyledSection = styled.section<PrimaryProps>`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  ${props =>
-    props.primary &&
+  ${({ primary }) =>
+    primary &&
     css`
       flex-direction: row;
       justify-content: center;

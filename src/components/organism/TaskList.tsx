@@ -11,7 +11,7 @@ interface TaskListProps extends StateProps {
   getTasks: () => any;
 }
 
-const TaskList = ({ tasks, loading, getTasks }: TaskListProps) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, loading, getTasks }) => {
   useEffect((): void => {
     getTasks();
     //eslint-disable-next-line

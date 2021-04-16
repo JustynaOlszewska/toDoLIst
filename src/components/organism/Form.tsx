@@ -31,12 +31,12 @@ interface FormProps extends StateProps {
   value: { text: string; date: string; textArea: string };
   priority: boolean;
   dropDownForm: boolean;
-  type: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 const Button = lazy(() => import('../atom/Button'));
 
-const Form = ({
+const Form: React.FC<FormProps> = ({
   setAlert,
   addTask,
   getTasks,
@@ -48,7 +48,7 @@ const Form = ({
   priority,
   dropDownForm,
   type
-}: FormProps) => {
+}) => {
   const { text, date, textArea } = value;
 
   const handleSubmit = (event: React.SyntheticEvent): void => {
@@ -71,7 +71,7 @@ const Form = ({
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <Button task="add" handleClick={dropDown} type={type} />
+      <Button handleClick={dropDown} type={type} task="add" />
       <StyledInputs drop={dropDownForm}>
         <label htmlFor="text">
           Task name
@@ -97,9 +97,9 @@ const Form = ({
         <label htmlFor="area">
           <StyledTextArea
             id="area"
-            maxLength="50"
-            cols="30"
-            rows="10"
+            maxLength={50}
+            cols={30}
+            rows={10}
             value={textArea}
             name="textArea"
             onChange={handleChange}
@@ -121,7 +121,7 @@ interface StateProps {
   value: { text: string; date: string; textArea: string };
   priority: boolean;
   dropDownForm: boolean;
-  type: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 const mapStateToProps = (state: any): StateProps => ({

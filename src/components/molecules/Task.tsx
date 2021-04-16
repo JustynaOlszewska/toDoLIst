@@ -39,7 +39,7 @@ const Task: React.FC<TaskProps> = ({ task, deleteTask }) => {
   return (
     <>
       <StyledLi>
-        <Button task="delete" handleClick={handleDelete} type="reset" />
+        <Button handleClick={handleDelete} type="reset" task="delete" />
         <StyledSpan onClick={dropDownDescription}>Task name: {text}</StyledSpan>
         <StyledSpan date>Added: {date}</StyledSpan>
         <StyledIcon priority={priority} className="fas fa-eye">
@@ -47,7 +47,7 @@ const Task: React.FC<TaskProps> = ({ task, deleteTask }) => {
         </StyledIcon>
         <DescriptionTask dropDownList={dropDownList} description={textArea} />
       </StyledLi>
-      <hr />
+      <hr style={{ width: '90%' }} />
     </>
   );
 };

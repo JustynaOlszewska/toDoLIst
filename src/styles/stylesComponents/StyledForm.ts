@@ -1,10 +1,14 @@
 import styled from 'styled-components';
-import { Transform } from '../../styles/dry/Transform';
-import { Flex } from '../../styles/dry/Flex';
-import { Priority } from '../../styles/dry/Priority';
-import { breakPoints } from '../../styles/breakPoints';
+import { Transform } from '../dry/Transform';
+import { Flex } from '../dry/Flex';
+import { Priority } from '../dry/Priority';
+import { breakPoints } from '../breakPoints';
 
-export const StyledInputs = styled.div`
+interface DropProps {
+  readonly drop: boolean;
+}
+
+export const StyledInputs = styled.div<DropProps>`
   ${Transform}
   ${Flex}
   height: ${({ drop }) => (!drop ? '0' : '200px')};
