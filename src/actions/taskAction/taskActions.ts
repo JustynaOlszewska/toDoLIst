@@ -1,18 +1,6 @@
 import { Dispatch } from 'redux';
 import { TypeTask } from '../types';
-import { TaskDetails } from '../../components/organism/taskList/typesTS';
-
-interface TaskApi {
-  url: string;
-  method: string | undefined;
-  type: string;
-  typeError: string;
-  body?: Omit<TaskDetails, 'id'> | number | null;
-}
-interface SetTask {
-  type: string;
-  payload?: Omit<TaskDetails, 'id'> | number;
-}
+import { TaskApi, SetTask } from './typesTS';
 
 const taskApi = (url, method = 'GET', type, typeError, body = null) => async (
   dispatch: Dispatch<TaskApi | SetTask>

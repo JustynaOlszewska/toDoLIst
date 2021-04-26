@@ -98,7 +98,7 @@ const Form: React.FC<FormProps> = ({
   );
 };
 
-const mapStateToProps = (state: any): StateProps => ({
+const mapStateToProps = (state: { formReducer: StateProps }) => ({
   value: state.formReducer.value,
   priority: state.formReducer.priority,
   dropDownForm: state.formReducer.dropDownForm,

@@ -10,7 +10,7 @@ const Alert = ({ alert }: AlertState): any =>
     </StyledAlert>
   );
 
-const mapStateToProps = (state): AlertState => ({
+const mapStateToProps = (state: { alertReducer: AlertState }) => ({
   alert: state.alertReducer.alert
 });
 

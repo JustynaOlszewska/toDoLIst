@@ -24,7 +24,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, loading, getTasks }) => {
   );
 };
 
-const mapStateToProps = (state): StateProps => ({
+const mapStateToProps = (state: { taskReducer: StateProps }) => ({
   tasks: state.taskReducer.tasks,
   loading: state.taskReducer.loading
 });
