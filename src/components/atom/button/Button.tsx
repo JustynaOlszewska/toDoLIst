@@ -1,11 +1,6 @@
 import React from 'react';
-import { StyledButton } from '../../styles/stylesComponents/StyledButton';
-
-interface ButtonProps {
-  handleClick: () => void;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  task: string;
-}
+import { StyledButton } from '../../../styles/stylesComponents/StyledButton';
+import { ButtonProps } from './typesTS';
 
 const Button: React.FC<ButtonProps> = ({
   handleClick,

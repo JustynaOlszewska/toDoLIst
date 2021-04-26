@@ -1,16 +1,17 @@
-import { SET_ALERT, REMOVE_ALERT } from './types';
+import { TypeTask } from '../types';
+import { DispatchAlert } from './typesTS';
 
 export const setAlert = (msg: string, timeout = 5000) => (
-  dispatch: (SetAlert) => void
+  dispatch: DispatchAlert
 ): void => {
   dispatch({
-    type: SET_ALERT,
+    type: TypeTask.SET_ALERT,
     payload: msg
   });
 
   setTimeout((): void => {
     dispatch({
-      type: REMOVE_ALERT
+      type: TypeTask.REMOVE_ALERT
     });
   }, timeout);
 };

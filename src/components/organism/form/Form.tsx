@@ -5,36 +5,17 @@ import {
   StyledForm,
   StyledTextArea,
   StyledIcon
-} from '../../styles/stylesComponents/StyledForm';
-import { setAlert } from '../../actions/alertAction';
-import { addTask, getTasks } from '../../actions/taskActions';
+} from '../../../styles/stylesComponents/StyledForm';
+import { setAlert } from '../../../actions/alertAction/alertAction';
+import { addTask, getTasks } from '../../../actions/taskAction/taskActions';
 import {
   setDropDown,
   handleChange,
   clearAll,
   setPriorityTask
-} from '../../actions/formActions';
-
-interface FormProps extends StateProps {
-  setAlert: (m: string) => void;
-  addTask: (value: {
-    text: string;
-    date: string;
-    textArea: string;
-    priority: boolean;
-  }) => void;
-  getTasks: () => void;
-  setDropDown: () => void;
-  handleChange: (event: React.SyntheticEvent) => void;
-  setPriorityTask: () => void;
-  clearAll: () => void;
-  value: { text: string; date: string; textArea: string };
-  priority: boolean;
-  dropDownForm: boolean;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-}
-
-const Button = lazy(() => import('../atom/Button'));
+} from '../../../actions/formAction/formActions';
+import { FormProps, StateProps } from './typesTS';
+const Button = lazy(() => import('../../atom/button/Button'));
 
 const Form: React.FC<FormProps> = ({
   setAlert,
@@ -47,7 +28,7 @@ const Form: React.FC<FormProps> = ({
   value,
   priority,
   dropDownForm,
-  type
+  type = 'button'
 }) => {
   const { text, date, textArea } = value;
 
@@ -116,13 +97,6 @@ const Form: React.FC<FormProps> = ({
     </StyledForm>
   );
 };
-
-interface StateProps {
-  value: { text: string; date: string; textArea: string };
-  priority: boolean;
-  dropDownForm: boolean;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-}
 
 const mapStateToProps = (state: any): StateProps => ({
   value: state.formReducer.value,

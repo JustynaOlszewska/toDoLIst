@@ -7,9 +7,9 @@ import {
   StyledH1
 } from '../../styles/stylesComponents/StyledMain';
 import ErrorBoundary from '../../ErrorBoundary';
-const Form = lazy(() => import('../organism/Form'));
-const TaskList = lazy(() => import('../organism/TaskList'));
-const Alert = lazy(() => import('../molecules/Alert'));
+const Form = lazy(() => import('../organism/form/Form'));
+const TaskList = lazy(() => import('../organism/taskList/TaskList'));
+const Alert = lazy(() => import('../molecules/alert/Alert'));
 
 const Main: React.FC = () => {
   useEffect((): void => {

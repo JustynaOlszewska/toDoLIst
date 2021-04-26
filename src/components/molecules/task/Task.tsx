@@ -1,26 +1,18 @@
 import React, { lazy, useState } from 'react';
 import { connect } from 'react-redux';
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css/dist/js/materialize.min.js';
+import Message from 'materialize-css/dist/js/materialize.min.js';
 import {
   StyledIcon,
   StyledLi,
   StyledSpan
-} from '../../styles/stylesComponents/StyledTask';
-import { deleteTask } from '../../actions/taskActions';
-const Button = lazy(() => import('../atom/Button'));
-const DescriptionTask = lazy(() => import('../atom/DescriptionTask'));
-
-type TaskProps = {
-  task: {
-    id: number;
-    text: string;
-    textArea: string;
-    priority: boolean;
-    date: string;
-  };
-  deleteTask: (m: number) => void;
-};
+} from '../../../styles/stylesComponents/StyledTask';
+import { deleteTask } from '../../../actions/taskAction/taskActions';
+import { TaskProps } from './typesTS';
+const Button = lazy(() => import('../../atom/button/Button'));
+const DescriptionTask = lazy(
+  () => import('../../atom/descriptionTask/DescriptionTask')
+);
 
 const Task: React.FC<TaskProps> = ({ task, deleteTask }) => {
   const [dropDownList, setDropDownList] = useState<boolean>(false);
@@ -29,7 +21,7 @@ const Task: React.FC<TaskProps> = ({ task, deleteTask }) => {
 
   const handleDelete = (): void => {
     deleteTask(id);
-    M.toast({ html: 'Task deleted' });
+    Message.toast({ html: 'Task deleted' });
   };
 
   const dropDownDescription = (): void => {

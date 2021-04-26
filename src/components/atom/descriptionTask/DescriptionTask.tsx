@@ -1,10 +1,6 @@
 import React from 'react';
-import { StyledDescription } from '../../styles/stylesComponents/StyledDescription';
-
-type DescriptionTaskProps = {
-  dropDownList: boolean;
-  description: string;
-};
+import { StyledDescription } from '../../../styles/stylesComponents/StyledDescription';
+import { DescriptionTaskProps } from './typesTS';
 
 const DescriptionTask: React.FC<DescriptionTaskProps> = ({
   dropDownList,
